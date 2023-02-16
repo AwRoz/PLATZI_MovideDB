@@ -105,3 +105,4 @@ dist
 
 #secret (apiKey)
 src/secret.js
+.DS_Store
