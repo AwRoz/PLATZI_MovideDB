@@ -14,8 +14,8 @@
 
 html{
     background-color:black;
-    max-width: 39rem;
-    border: 1px solid white;
+    max-width: 50rem;
+    /* border: 1px solid white; */
     /* padding: 20px; */
 }
 
@@ -160,9 +160,25 @@ html{
  }
 
  /* 🎬 MOVIE POSTER 🎬 */
-.movie-poster{
+.movies-posters-list{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+    /* max-width: 39rem; */
+    height: 22rem;
+    padding: 1rem;
+    overflow-x: scroll;
+    overflow-y: hidden; /* avoid vertical scrolling due to vertical scroll implementation*/
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+ .movie-poster{
     display: inline-block;
     width: 13.7rem;
     height: 20.9rem;
     border-radius: 0.4rem;
+    scroll-snap-align: center;
  }
+
+ 
