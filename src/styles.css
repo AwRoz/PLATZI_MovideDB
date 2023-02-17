@@ -19,7 +19,7 @@ html{
     /* padding: 20px; */
 }
 
-/* PROFILE BUTTON COMPONENT */
+/* 🙋🏻‍♂️ PROFILE BUTTON 🙋🏻‍♂️ */
 .profile-btn{
     display: none;
     width: 3.5rem;
@@ -33,7 +33,7 @@ html{
     box-shadow: 0rem 0rem 0.4rem var(--white);
 }
 
-/* CATEGORIES TAGS COMPONENT */
+/* 🏷️ CATEGORIES TAGS 🏷️ */
 .featured-categories-list{
     display: none;
     /* display: flex; */
@@ -57,7 +57,7 @@ html{
 }
 
 
-/* FEATURED MOVIE COMPONENT */
+/* 🎥 FEATURED MOVIE 🎥 */
 .featured-movie-title{
     display: none;
     /* display: flex; */
@@ -72,8 +72,7 @@ html{
 }
 
 
-/* PLAY BUTTON COMPONETN */
-
+/* ▶️ PLAY BUTTON ▶️ */
 .play-btn{
     display: none;
     /* display: inline-block; */
@@ -88,7 +87,7 @@ html{
     opacity:50%;
 }
 
-/* SEARCH BUTTON COMPONENT */
+/* 🔎 SEARCH BUTTON 🔎 */
 .search{
     all: unset; /* remove all styles to make it look like an icon */
     display: none;
@@ -104,3 +103,66 @@ html{
     background-size: cover;
     background-color: transparent;
 }
+
+
+/* 📙 FEATURED MOVIE DESCRIPTION 📙 */
+.featured-movie-description-container{
+    display: none;
+    /* display: flex; */
+    flex-direction: row-reverse;
+
+}
+.featured-movie-description{
+    max-width: 35rem;
+    height: 7rem;
+    color: white;
+    font-family: 'Magra', sans-serif;
+    font-size: 1.4rem;
+    text-align: right;
+    overflow: scroll;
+}
+
+
+ /* 🌆 FEATURED MOVIE IMAGE 🌆  */
+ .featured-movie-img-container{
+     position: relative;
+     /* display: inline-block; */
+     display: none;
+ }
+ .featured-movie-img{
+    width: 39rem;
+    height: 22rem;
+ }
+ .img-gradient-top{
+     position: absolute;
+     width: 100%;
+     height: 30%;
+     top: 0;
+     left: 0;
+     background-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+  }
+.img-gradient-bottom{
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+ }
+
+ /* 📗 SECONDARY TITLES 📗 */
+ .secondary-titles{
+    display: none;
+    max-width: 39rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2rem;
+    color: white;
+ }
+
+ /* 🎬 MOVIE POSTER 🎬 */
+.movie-poster{
+    display: inline-block;
+    width: 13.7rem;
+    height: 20.9rem;
+    border-radius: 0.4rem;
+ }
