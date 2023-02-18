@@ -39,7 +39,7 @@
         <span class="play-btn"></span>
     </a>
 
-    <!-- SEARCH BUTTON COMPONENT -->
+    <!-- SEARCH ICON COMPONENT -->
     <button class="search" type="button">
         <span class="search-icon"></span>
     </button>
@@ -60,7 +60,7 @@
     </div>
 
     <!-- 📗 SECONDARY TITLES 📗 -->
-    <h3 class="secondary-titles">Recently Released</h3>
+    <h3 class="secondary-titles"></h3>
 
     <!-- 🎬 MOVIES POSTERS LIST 🎬 -->
     <div class="movies-posters-list">
@@ -113,6 +113,97 @@
             <span class="filters-gradient-bottom"></span>
         </ul>
     </section>
+
+
+    <!--  🔍 SEARCH SECTION 🔍 -->
+    <section class="search-options-container">
+        <div class="search-type-container">
+            <h3 class="secondary-titles">What would you like to watch?</h3>
+            <div class="search-options-list">
+                <label for="movies">
+                    <input type="checkbox" id="movies">
+                    <span>Movies</span>
+                </label>
+                <label for="tv-shows">
+                    <input type="checkbox" id="tv-shows">
+                    <span>TV-Shows</span>
+                </label>
+                <label for="3D">
+                    <input type="checkbox" id="3D">
+                    <span>3D</span>
+                </label>
+                <label for="documentaries">
+                    <input type="checkbox" id="documentaries">
+                    <span>Documentaries</span>
+                </label>
+                <label for="anime">
+                    <input type="checkbox" id="anime">
+                    <span>Anime</span>
+                </label>
+                <label for="cartoon">
+                    <input type="checkbox" id="cartoon">
+                    <span>Cartoon</span>
+                </label>
+            </div>
+        </div>
+        <div class="search-type-container">
+            <h3 class="secondary-titles">How much time do you have?</h3>
+            <div class="search-options-list">
+                <label for="60m">
+                    <input type="checkbox" id="60m">
+                    <span>Up to 60 Min.</span>
+                </label>
+                <label for="90m">
+                    <input type="checkbox" id="90m">
+                    <span>Up to 90 Min.</span>
+                </label>
+                <label for="120m">
+                    <input type="checkbox" id="120m">
+                    <span>Up to 2 Hours</span>
+                </label>
+                <label for="long-movies">
+                    <input type="checkbox" id="long-movies">
+                    <span>Longer than 2 Hours</span>
+                </label>
+                <label for="any-lenght">
+                    <input type="checkbox" id="any-lenght">
+                    <span>Any lenght</span>
+                </label>
+            </div>
+        </div>
+        <div class="search-type-container">
+            <h3 class="secondary-titles">Any Mood?</h3>
+            <div class="search-options-list">
+                <label for="relax">
+                    <input type="checkbox" id="relax">
+                    <span>Relax</span>
+                </label>
+                <label for="family-time">
+                    <input type="checkbox" id="family-time">
+                    <span>Family time</span>
+                </label>
+                <label for="spooky">
+                    <input type="checkbox" id="spooky">
+                    <span>Spooky</span>
+                </label>
+                <label for="mind-blowing">
+                    <input type="checkbox" id="mind-blowing">
+                    <span>Mind Blowing</span>
+                </label>
+                <label for="energetic">
+                    <input type="checkbox" id="energetic">
+                    <span>Energetic</span>
+                </label>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 🔍 SEARCH BUTTON 🔍 -->
+
+    <div class="search-btn-container">
+        <button type="button">Apply filters (5)</button>
+    </div>
 
     <script src="./src/script.js"></script>
 </body>
