@@ -4,6 +4,7 @@
     --dark-gray: #121212;
     --middle-gray: #222222;
     --light-gray: #D9D9D9;
+    --black: #000000;
 }
 *{
     box-sizing: border-box;
@@ -145,6 +146,7 @@ html{
      top: 0;
      left: 0;
      background-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+     z-index: -1;
   }
 .img-gradient-bottom{
     position: absolute;
@@ -153,6 +155,7 @@ html{
     bottom: 0;
     left: 0;
     background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+    z-index: -1;
  }
 
  /* 📗 SECONDARY TITLES 📗 */
@@ -162,12 +165,20 @@ html{
     font-family: 'DM Sans', sans-serif;
     font-size: 2rem;
     color: white;
+    margin: 0 1.4rem;
  }
 
- /* 🎬 MOVIE POSTER 🎬 */
+ /* 🎬 MOVIE POSTERS/SCROLL 🎬 */
+ .movies-scroll-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    background-color: var(--black);
+    margin-bottom: 3.4rem;
+ }
 .movies-posters-list{
-    display: none;
-    /* display: flex; */
+    /* display: none; */
+    display: flex;
     justify-content: flex-start;
     gap: 1rem;
     width: 100%;
@@ -252,7 +263,8 @@ html{
 /* 🔍 SEARCH OPTION 🔍 */
 .search-type-container{
     width: 100%;
-    display: flex;
+    /* display: flex; */
+    display: none;
     flex-direction: column;
     gap: 2.4rem;
     padding: 1.4rem;
@@ -291,14 +303,15 @@ html{
 
 /* 🔍 SEARCH BUTTON 🔍 */
 .search-btn-container {
-    position: absolute;
-    display: flex;
-    /* display: none; */
+    position: fixed;
+    /* display: flex; */
+    display: none;
     bottom:0;
     width: 100%;
     height: 10rem;
     justify-content: center;
     align-items: center;
+    background-color: black;
 }
 .search-btn-container button{
     background-color: var(--white);
@@ -309,4 +322,78 @@ html{
     border-radius: 0.4rem;
 }
 
+/* 🍿 MOVIE DETAILS COMPONENT 🍿 */
+.movie-details-container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    /* display: flex;
+    align-items: center; */
+}
+.movie-details{
+    display: grid;
+    padding: 4rem 1.4rem 2rem 1.4rem;
+    gap: 1rem;
+    grid-template-areas: 
+    'poster title'
+    'poster description'
+    'poster tags'
+    'cast cast';
+}
+.movie-poster{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    grid-area: poster;
+}
+.movie-details-container::before{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: " ";/* necesary to display the background*/
+    background-image: url(https://www.themoviedb.org/t/p/w1280/71Y3ls4BvaQgJaEEfZLIp3RndF.jpg);
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    filter: blur(1.5rem);
+    opacity: 40%;
+    z-index: -2;
+}
+
+.movie-details-title{
+    font-family: 'Magra',sans-serif;
+    font-size: 2rem;
+    color: var(--white);
+    grid-area: title;
+}
+.movie-details-description{
+    font-family: 'Magra',sans-serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    grid-area: description;
+    text-align: justify;
+}
+.movie-details-tags-container{
+    grid-area: tags;
+}
+.movie-details-tags-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+.movie-details-metaData{
+    font-family: 'Anaheim',sans-serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    grid-area: metadata;
+    place-self: center;
+}
+.movie-details-metaData span{
+color: var(--light-gray);
+}
+.movie-details-starring{
+    grid-area: cast;
+    text-align: right;
+    padding-top: 1rem;
+}
 
