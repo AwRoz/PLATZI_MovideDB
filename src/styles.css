@@ -24,6 +24,10 @@ html{
     /* border: 1px solid white; */
     /* padding: 20px; */
 }
+main{
+    position: relative;
+    padding-bottom: 8rem;
+}
 
 /* 🙋🏻‍♂️ PROFILE BUTTON 🙋🏻‍♂️ */
 .profile-btn{
@@ -79,9 +83,18 @@ html{
 
 
 /* ▶️ PLAY BUTTON ▶️ */
+.movie-trailer-link{
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
 .play-btn{
-    display: none;
-    /* display: inline-block; */
+    /* display: none; */
+    display: inline-block;
     width: 5rem;
     height: 5rem;
     background-image:url(../assets/play-Btn.png);
@@ -191,6 +204,7 @@ html{
     scroll-behavior: smooth;
 }
  .movie-poster{
+    position: relative;
     display: inline-block;
     width: 13.7rem;
     height: 20.9rem;
@@ -200,8 +214,10 @@ html{
 
  /* 🔍 FILTERS BLOCK 🔍 */
  .filters-container{
-    position: relative;
-    display: none;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    /* display: none; */
  }
  .filters-list{
     display: flex;
@@ -226,14 +242,13 @@ html{
 
  .filter-option button span{
     display: block;
-    width: 2.5rem;
-    height: 2.5rem;
-    /* background-image: url(../assets/home-icon.png); */
+    width: 3rem;
+    height: 3rem;
     filter: invert(100%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
- }
+ } /*Genera/ properties of each button/icon*/
 
  .btn-movies span{
     background-image: url(../assets/movies-icon.png);
