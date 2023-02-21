@@ -219,8 +219,6 @@ main{
  }
 .cast-list{
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
     gap: 1rem;
     width: 100%;
     height: 22rem;
@@ -230,31 +228,59 @@ main{
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 }
- .cast-picture{
-    position: relative;
-    display: inline-block;
-    width: 11rem;
-    height: 14rem;
-    border-radius: 1rem;
-    scroll-snap-align: center;
-    object-fit: contain;
-    object-position: center;
- }
- .cast-card{
+.cast-picture{
+position: relative;
+display: inline-block;
+width: 11rem;
+height: 14rem;
+border-radius: 1rem;
+scroll-snap-align: center;
+object-fit: contain;
+object-position: center;
+}
+.cast-card{
+display: flex;
+flex-direction: column;
+gap: 0.4rem;
+}
+.cast-real-name{
+color: var(--white);
+font-family: 'Magra',sans-serif;
+font-size: 1.5rem;
+}
+.cast-acting-name{
+color: var(--white);
+font-family: 'Anaheim',sans-serif;
+font-size: 1.3rem;
+}
+
+ /* 🌆 MOVIE DETAILS MEDIA 🌆 */
+ .movie-details-media{
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 1.4rem;
+    background-color: var(--black);
+    margin: 2rem 0 3.4rem 0;
  }
- .cast-real-name{
-    color: var(--white);
-    font-family: 'Magra',sans-serif;
-    font-size: 1.5rem;
+ .media-img img{
+    max-width: 90vw;
+    height: 30rem;
+    border-radius: 0.4rem;
+    object-fit:cover;
  }
- .cast-acting-name{
-    color: var(--white);
-    font-family: 'Anaheim',sans-serif;
-    font-size: 1.3rem;
+ .media-list{
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 1rem;
+    padding: 1rem;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
  }
+ .media-list li {
+    scroll-snap-align: center;
+  }  
 
  /* 🔍 FILTERS BLOCK 🔍 */
  .filters-container{
