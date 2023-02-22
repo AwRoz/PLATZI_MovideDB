@@ -45,8 +45,48 @@ main{
     box-shadow: 0rem 0rem 0.4rem var(--white);
 }
 
-
-
+/* 🔍 SEARCH BAR 🔍 */
+.navigation{
+    position: absolute;
+    width: 100%;
+    max-width: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.search-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem 0;
+    padding: 0 1.1rem;
+    background-color: var(--dark-gray);
+    border-radius: 0.4rem;
+}
+.search-form::after{
+    content: '';
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    background-image: url(../assets/search-icon.png);
+    filter: invert(100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.search-form input{
+    width:70vw;
+    height:4.5rem;
+    max-width: 40rem;
+    border: none;
+    background-color: var(--dark-gray);
+    padding-left: 1.1rem;
+}
+.search-form input:focus{
+    outline: none;
+    color: var(--white);
+}
 /* ▶️ PLAY BUTTON ▶️ */
 .movie-details-trailer-link{
     position: absolute;
@@ -56,7 +96,7 @@ main{
 }
 .featured-movie-trailer-link{
     position: absolute;
-    top: 38%;
+    top: 48%;
     left: 44%;
 }
 .play-btn{
@@ -72,24 +112,6 @@ main{
     opacity:50%;
 }
 
-/* 🔎 SEARCH BUTTON 🔎 */
-.search{
-    all: unset; /* remove all styles to make it look like an icon */
-    display: none;
-    background-color: transparent;
-}
-.search-icon{
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    background-image: url(../assets/search.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: transparent;
-}
-
-
  /* 🌆 FEATURED MOVIE 🌆  */
  .featured-movie{
     display: grid;
@@ -104,7 +126,7 @@ main{
  .featured-movie-img{
      position: relative;
     width: 100%;
-    height: 30rem;
+    height: 38rem;
     object-fit: cover;
     object-position: bottom;
     z-index: -2;
@@ -291,7 +313,7 @@ font-size: 1.3rem;
  }
  .filters-list{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 1.5rem 3rem 0 3rem;
     background-color: var(--dark-gray);
     width: 100%;
@@ -306,13 +328,13 @@ font-size: 1.3rem;
 }
  .filter-option button h5{
     font-family: 'Anaheim', sans-serif;
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: white;
  }
 
  .filter-option button span{
     display: block;
-    width: 3rem;
+    width: 2.8rem;
     height: 3rem;
     filter: invert(100%);
     background-position: center;
@@ -335,6 +357,9 @@ font-size: 1.3rem;
  .btn-custom span{
     background-image: url(../assets/filter-icon.png);
  }
+ .btn-search span{
+    background-image: url(../assets/search-icon.png);
+ }
 .filters-gradient-bottom{
     position: absolute;
     width: 100%;
@@ -348,8 +373,7 @@ font-size: 1.3rem;
 /* 🔍 SEARCH OPTION 🔍 */
 .search-type-container{
     width: 100%;
-    /* display: flex; */
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 2.4rem;
     padding: 1.4rem;
@@ -357,6 +381,7 @@ font-size: 1.3rem;
 .search-options-container{
     display: grid;
     gap: 2rem;
+    margin-bottom: 10rem;
 }
 .search-options-list{
     display: flex;
@@ -389,11 +414,11 @@ font-size: 1.3rem;
 /* 🔍 SEARCH BUTTON 🔍 */
 .search-btn-container {
     position: fixed;
-    /* display: flex; */
-    display: none;
-    bottom:0;
+    display: flex;
+    bottom:8rem;
     width: 100%;
-    height: 10rem;
+    max-width: 50rem;
+    height: 8rem;
     justify-content: center;
     align-items: center;
     background-color: black;
@@ -403,7 +428,7 @@ font-size: 1.3rem;
     color: var(--dark-gray);
     font-family: 'DM Sans',sans-serif;
     font-size: 2rem;
-    padding:1.2rem 6rem;
+    padding:1rem 6rem;
     border-radius: 0.4rem;
 }
 
@@ -477,4 +502,3 @@ font-size: 1.3rem;
 .movie-details-metaData span{
 color: var(--light-gray);
 }
-

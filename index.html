@@ -11,6 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Anaheim&family=DM+Sans&family=Magra&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav class="navigation">
+        <form id="search-form" class="search-form">
+            <input type="text" name="search" id="search-input" placeholder="Search any title here...">
+        </form>
+    </nav>
     <main>
         <section class="featured-movie">
             <!-- 🌆 FEATURED MOVIE IMAGE 🌆 -->
@@ -22,7 +27,7 @@
                     </a>    
                 </img>
                 <span class="img-gradient-bottom"></span>
-                <span class="img-gradient-top"></span>
+                <!-- <span class="img-gradient-top"></span> -->
             </div>
 
             <!-- FEATURED MOVIE TITLE COMPONENT -->
@@ -46,12 +51,6 @@
                 <img src="./assets/profilePic.png" alt="profile picture">
             </a>
         </div>
-        
-        <!-- SEARCH ICON COMPONENT -->
-        <button class="search" type="button">
-            <span class="search-icon"></span>
-        </button>
-
 
         <!-- 🎬 MOVIES POSTERS LIST 🎬 -->
         <section class="movies-scroll-container">
@@ -85,7 +84,8 @@
                 <img src="https://www.themoviedb.org/t/p/w1280/wjOHjWCUE0YzDiEzKv8AfqHj3ir.jpg" alt="movie poster" class="movie-poster">
             </div>
         </section> 
-   
+    </main>
+
     <section class="filters-container">
         <ul class="filters-list">
             <li class="filter-option">
@@ -121,9 +121,8 @@
             <span class="filters-gradient-bottom"></span>
         </ul>
     </section>
-
-    </main>
-
+    
+    
 
     <script src="./src/script.js"></script>
 </body>
