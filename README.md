@@ -13,3 +13,5 @@ Desing:
 -Designing should be tested for UI and UX before start coding. i noticed that i had to increase the size of certain elements because when tested in a phone those elements were too small, so its better to test the design from figma on a mobile device before srart coding.
 
 -Im struggling with som styles when i want to achieve a overlap style. like the background on the movie details section, in combination to the title, description etc. apparently there's an option to use css crid to achieve the same effect instead of usinf positioning: Relative/absolute.
+
+-Overflow:scroll -> i'm not completely sure how to fix this behaviour, in some cases when the text description for movies es too long with this i could help the design to not fall appart. but is almost not clear that there's a scroll bar or any indication that tou can continue scrollong to read. it also happens with the pictures scroll. sometimes it can look that theres no more text or pictures.

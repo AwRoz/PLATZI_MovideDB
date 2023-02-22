@@ -268,7 +268,7 @@ font-size: 1.3rem;
     border-radius: 0.4rem;
     object-fit:cover;
  }
- .media-list{
+ .media-list{   
     display: flex;
     width: 100%;
     overflow-x: scroll;
@@ -411,7 +411,7 @@ font-size: 1.3rem;
 .movie-details-container{
     position: relative;
     width: 100%;
-    height: auto;
+    max-height: 28rem;
 }
 .movie-details{
     display: grid;
@@ -456,6 +456,8 @@ font-size: 1.3rem;
     color: var(--white);
     grid-area: description;
     text-align: justify;
+    max-height: 10rem;
+    overflow: scroll;
 }
 .movie-details-tags-container{
     grid-area: tags;
