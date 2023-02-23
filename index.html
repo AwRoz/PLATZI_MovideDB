@@ -13,110 +13,132 @@
 <body>
     <nav class="navigation">
         <form id="search-form" class="search-form">
-            <input type="text" name="search" id="search-input" placeholder="Search any title here...">
+            <input type="text" name="search" class="search-input" id="search-input" placeholder="Search any title here..." autocomplete="off">
+            <span class="search-icon"></span>
+            <span class="exit-search-icon disable-view"></span>
         </form>
     </nav>
     <main>
-        <section class="featured-movie">
-            <!-- 🌆 FEATURED MOVIE IMAGE 🌆 -->
-            <div class="featured-movie-img-container">
-                <img class="featured-movie-img" src="https://www.themoviedb.org/t/p/w1280/6erYgTxjMnxTWI7qXFQbc9Jik77.jpg">
-                    <!-- PLAY BUTTON COMPONETN -->
-                    <a href="#" class="featured-movie-trailer-link">
-                        <span class="play-btn"></span>
-                    </a>    
-                </img>
-                <span class="img-gradient-bottom"></span>
-                <!-- <span class="img-gradient-top"></span> -->
-            </div>
-
-            <!-- FEATURED MOVIE TITLE COMPONENT -->
-            <h2 class="featured-movie-title">Avatar: The way of Water</h2>
-            <!-- 📙 FEATURED MOVIE DESCRIPTION COMPONENT 📙 -->
-            <p class="featured-movie-description">
-                Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.
-            </p>
-
-            <!-- CATEGORIES TAGS COMPONENT -->
-            <ul class="featured-categories-list">
-                <li class="category-tag"><a href="">Mistery</a></li>
-                <li class="category-tag"><a href="">Thriller</a></li>
-                <li class="category-tag"><a href="">Suspense</a></li>
-            </ul>            
-        </section>
-
-        <!-- PROFILE BUTTON COMPONENT -->
-        <div class="profile-btn">
-            <a href="" role="button" href="#">
-                <img src="./assets/profilePic.png" alt="profile picture">
-            </a>
+        <div id="index-view" class="index-view">
+            <section class="featured-movie">
+                <!-- 🌆 FEATURED MOVIE IMAGE 🌆 -->
+                <div class="featured-movie-img-container">
+                    <img class="featured-movie-img" src="https://www.themoviedb.org/t/p/w1280/6erYgTxjMnxTWI7qXFQbc9Jik77.jpg">
+                        <!-- PLAY BUTTON COMPONETN -->
+                        <a href="#" class="featured-movie-trailer-link">
+                            <span class="play-btn"></span>
+                        </a>    
+                    </img>
+                    <span class="img-gradient-bottom"></span>
+                    <!-- <span class="img-gradient-top"></span> -->
+                </div>
+    
+                <!-- FEATURED MOVIE TITLE COMPONENT -->
+                <h2 class="featured-movie-title">Avatar: The way of Water</h2>
+                <!-- 📙 FEATURED MOVIE DESCRIPTION COMPONENT 📙 -->
+                <p class="featured-movie-description">
+                    Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.
+                </p>
+    
+                <!-- CATEGORIES TAGS COMPONENT -->
+                <ul class="featured-categories-list">
+                    <li class="category-tag"><a href="">Mistery</a></li>
+                    <li class="category-tag"><a href="">Thriller</a></li>
+                    <li class="category-tag"><a href="">Suspense</a></li>
+                </ul>            
+            </section>
+    
+            <!-- 🎬 MOVIES POSTERS LIST 🎬 -->
+            <section class="movies-scroll-container">
+                <h3 class="secondary-titles">Recently Released</h3>
+                <div class="movies-posters-list carousel-scroll">
+                    <a href="./movieDetails.html"><img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="./movieDetails.html"><img src="https://www.themoviedb.org/t/p/w1280/5DNRr2juXdwtvktwXxwuk9Usk8O.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="./movieDetails.html"><img src="https://www.themoviedb.org/t/p/w1280/bONYUEn7iMFCebhDuqNG7hqqwoO.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="./movieDetails.html"><img src="https://www.themoviedb.org/t/p/w1280/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="./movieDetails.html"><img src="https://www.themoviedb.org/t/p/w1280/wjOHjWCUE0YzDiEzKv8AfqHj3ir.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="./movieDetails.html"><img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="./movieDetails.html"><img src="https://www.themoviedb.org/t/p/w1280/5DNRr2juXdwtvktwXxwuk9Usk8O.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="./movieDetails.html"><img src="https://www.themoviedb.org/t/p/w1280/bONYUEn7iMFCebhDuqNG7hqqwoO.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="./movieDetails.html"><img src="https://www.themoviedb.org/t/p/w1280/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="./movieDetails.html"><img src="https://www.themoviedb.org/t/p/w1280/wjOHjWCUE0YzDiEzKv8AfqHj3ir.jpg" alt="movie poster" class="movie-poster"></a>
+                </div>
+            </section>
+    
+            <section class="movies-scroll-container">
+                <h3 class="secondary-titles">Top Ratings</h3>
+                <div class="movies-posters-list carousel-scroll">
+                    <a href="#"><img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="#"><img src="https://www.themoviedb.org/t/p/w1280/5DNRr2juXdwtvktwXxwuk9Usk8O.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="#"><img src="https://www.themoviedb.org/t/p/w1280/bONYUEn7iMFCebhDuqNG7hqqwoO.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="#"><img src="https://www.themoviedb.org/t/p/w1280/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="#"><img src="https://www.themoviedb.org/t/p/w1280/wjOHjWCUE0YzDiEzKv8AfqHj3ir.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="#"><img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="#"><img src="https://www.themoviedb.org/t/p/w1280/5DNRr2juXdwtvktwXxwuk9Usk8O.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="#"><img src="https://www.themoviedb.org/t/p/w1280/bONYUEn7iMFCebhDuqNG7hqqwoO.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="#"><img src="https://www.themoviedb.org/t/p/w1280/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" alt="movie poster" class="movie-poster"></a>
+                    <a href="#"><img src="https://www.themoviedb.org/t/p/w1280/wjOHjWCUE0YzDiEzKv8AfqHj3ir.jpg" alt="movie poster" class="movie-poster"></a>
+                </div>
+            </section> 
         </div>
 
-        <!-- 🎬 MOVIES POSTERS LIST 🎬 -->
-        <section class="movies-scroll-container">
-            <h3 class="secondary-titles">Recently Released</h3>
-            <div class="movies-posters-list">
-                <img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/5DNRr2juXdwtvktwXxwuk9Usk8O.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/bONYUEn7iMFCebhDuqNG7hqqwoO.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/wjOHjWCUE0YzDiEzKv8AfqHj3ir.jpg" alt="movie poster" class="movie-poster">
-                <img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/5DNRr2juXdwtvktwXxwuk9Usk8O.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/bONYUEn7iMFCebhDuqNG7hqqwoO.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/wjOHjWCUE0YzDiEzKv8AfqHj3ir.jpg" alt="movie poster" class="movie-poster">
-            </div>
-        </section>
-
-        <section class="movies-scroll-container">
-            <h3 class="secondary-titles">Top Ratings</h3>
-            <div class="movies-posters-list">
-                <img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/5DNRr2juXdwtvktwXxwuk9Usk8O.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/bONYUEn7iMFCebhDuqNG7hqqwoO.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/wjOHjWCUE0YzDiEzKv8AfqHj3ir.jpg" alt="movie poster" class="movie-poster">
-                <img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/5DNRr2juXdwtvktwXxwuk9Usk8O.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/bONYUEn7iMFCebhDuqNG7hqqwoO.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" alt="movie poster" class="movie-poster">
-                <img src="https://www.themoviedb.org/t/p/w1280/wjOHjWCUE0YzDiEzKv8AfqHj3ir.jpg" alt="movie poster" class="movie-poster">
-            </div>
-        </section> 
+        <div id="search-view" class="disable-view">
+            <ul class="search-resoults-list">
+                <li>
+                    <a href="#">
+                        <img src="https://www.themoviedb.org/t/p/w1280/5DNRr2juXdwtvktwXxwuk9Usk8O.jpg" alt="movie poster">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="https://www.themoviedb.org/t/p/w1280/5DNRr2juXdwtvktwXxwuk9Usk8O.jpg" alt="movie poster">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="https://www.themoviedb.org/t/p/w1280/5DNRr2juXdwtvktwXxwuk9Usk8O.jpg" alt="movie poster">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="https://www.themoviedb.org/t/p/w1280/5DNRr2juXdwtvktwXxwuk9Usk8O.jpg" alt="movie poster">
+                    </a>
+                </li>
+            </ul>
+        </div>
     </main>
 
     <section class="filters-container">
         <ul class="filters-list">
             <li class="filter-option">
-                <button type="button" class="btn-home" href="#">
+                <a class="btn-home" href="index.html">
                     <span></span>
                     <h5>Home</h5>
-                </button>
+                </a>
             </li>
             <li class="filter-option">                
-                <button type="button" class="btn-movies" href="#">
+                <a class="btn-movies" href="index-movies.html">
                     <span></span>
                     <h5>Movies</h5>
-                </button>
+                </a>
             </li>
             <li class="filter-option">
-                <button type="button" class="btn-tv-shows" href="#">
+                <a class="btn-tv-shows" href="index-tv.html">
                     <span></span>
                     <h5>TV-Shows</h5>
-                </button>
+                </a>
             </li>
             <li class="filter-option">
-                <button type="button" class="btn-saved" href="#">
+                <a class="btn-saved" href="saved.html">
                     <span></span>
                     <h5>Saved</h5>
-                </button>
+                </a>
             </li>
             <li class="filter-option">
-                <button type="button" class="btn-custom" href="#">
+                <a class="btn-custom" href="filters-page.html">
                     <span></span>
                     <h5>Filters</h5>
-                </button>
+                </a>
             </li>
             <span class="filters-gradient-bottom"></span>
         </ul>
@@ -124,6 +146,7 @@
     
     
 
-    <script src="./src/script.js"></script>
+    <script src="./src/search.js"></script>
+    <script src="./src/images-scroll.js"></script>
 </body>
 </html>
