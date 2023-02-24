@@ -88,6 +88,7 @@ main{
 .search-form input{
     width:70vw;
     height:4.5rem;
+    font-size: 1.6rem;
     max-width: 40rem;
     border: none;
     background-color: var(--dark-gray);
@@ -121,8 +122,8 @@ main{
 /* ▶️ PLAY BUTTON ▶️ */
 .movie-details-trailer-link{
     position: absolute;
-    top: 35%;/* Position absolute doesn't allow centering the button with display flex/grid so is necesary top/left*/
-    left: 35%;
+    top: 28%;/* Position absolute doesn't allow centering the button with display flex/grid so is necesary top/left*/
+    left: 25%;
     z-index: 1;
 }
 .featured-movie-trailer-link{
@@ -132,15 +133,15 @@ main{
 }
 .play-btn{
     display: inline-block;
-    width: 5rem;
-    height: 5rem;
+    width: 7rem;
+    height: 7rem;
     background-image:url(../assets/play-Btn.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
     background-color: white;
     border-radius: 5rem;
-    opacity:50%;
+    opacity:60%;
 }
 
  /* 🌆 FEATURED MOVIE 🌆  */
@@ -183,10 +184,9 @@ main{
  }
  .featured-movie-description{
     max-width: 38rem;
-    height: 7rem;
-    color: white;
+    color: var(--light-gray);
     font-family: 'Magra', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     text-align: right;
     overflow: scroll;
     margin: 0 1.4rem 1.4rem 1.4rem;
@@ -198,16 +198,14 @@ main{
     gap: 1rem 1.4rem;
     margin-right: 1.4rem;
 }
-.category-tag{
-    display: inline-flex; /*Allows the li element fit to its childs width*/
-}
+
 .category-tag a{
     display: inline-flex; /*makes `a` elements ocupy only width and height according to the content*/
     background-color: var(--light-gray);
     padding: 0.2rem 1rem;
     border-radius: 5rem;
     font-family: 'Abel', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
 }
 .category-tag a:visited{
     color: black;
@@ -298,12 +296,12 @@ gap: 0.4rem;
 }
 .cast-real-name{
 color: var(--white);
-font-family: 'Magra',sans-serif;
+font-family: 'MAgra',sans-serif;
 font-size: 1.5rem;
 }
 .cast-acting-name{
-color: var(--white);
-font-family: 'Anaheim',sans-serif;
+color: var(--light-gray);
+font-family: 'Abel',sans-serif;
 font-size: 1.3rem;
 }
 
@@ -452,7 +450,7 @@ font-size: 1.3rem;
     height: 8rem;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-color: var(--dark-gray);
 }
 .search-btn-container button{
     background-color: var(--white);
@@ -467,18 +465,24 @@ font-size: 1.3rem;
 .movie-details-container{
     position: relative;
     width: 100%;
-    max-height: 28rem;
 }
 .movie-details{
     display: grid;
     padding: 4rem 1.4rem 2rem 1.4rem;
     gap: 1rem;
+    grid-template-columns: 2fr 3fr; /* important to keep distribution of space*/
     grid-template-areas: 
     'poster title'
-    'poster description'
     'poster tags'
     'poster metadata'
-    'poster creators';
+    'description description';
+}
+.creators{
+    grid-area: creators;
+}
+.meta-data{
+    grid-area: metadata;
+    align-self: end;
 }
 .movie-poster{
     display: flex;
@@ -502,33 +506,36 @@ font-size: 1.3rem;
 
 .movie-details-title{
     font-family: 'Magra',sans-serif;
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--white);
     grid-area: title;
+    align-self: end;
 }
 .movie-details-description{
     font-family: 'Magra',sans-serif;
-    font-size: 1.4rem;
-    color: var(--white);
+    font-size: 1.6rem;
+    color: var(--light-gray);
     grid-area: description;
     text-align: justify;
-    max-height: 10rem;
+    max-height: 17rem;
     overflow: scroll;
+    padding-top: 1.4rem;
 }
 .movie-details-tags-container{
     grid-area: tags;
 }
 .movie-details-tags-list{
     display: flex;
+    row-gap: 1rem;
+    column-gap: 1.5rem;
+    max-height: 8rem;
     flex-wrap: wrap;
-    gap: 0.6rem;
 }
 .movie-details-metaData{
     font-family: 'Anaheim',sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: var(--white);
-    grid-area: metadata;
-    place-self: center;
+    /* place-self: center; */
 }
 .movie-details-metaData span{
 color: var(--light-gray);
