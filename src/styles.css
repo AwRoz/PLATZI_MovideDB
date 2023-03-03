@@ -65,7 +65,9 @@ main{
     margin: 2.5rem 0;
     padding: 0 1.1rem;
     background-color: var(--dark-gray);
+    opacity: 80%;
     border-radius: 0.4rem;
+    /* box-shadow: 1px 1px 10px white; */
 }
 .search-form .search-icon{
     width: 3rem;
@@ -92,6 +94,7 @@ main{
     max-width: 40rem;
     border: none;
     background-color: var(--dark-gray);
+    opacity: 80%;
     color: var(--white);
     padding-left: 1.1rem;
 }
@@ -123,13 +126,13 @@ main{
 .movie-details-trailer-link{
     position: absolute;
     top: 28%;/* Position absolute doesn't allow centering the button with display flex/grid so is necesary top/left*/
-    left: 25%;
+    left: 28%;
     z-index: 1;
 }
 .featured-movie-trailer-link{
     position: absolute;
     top: 48%;
-    left: 44%;
+    left: 40%;
 }
 .play-btn{
     display: inline-block;
@@ -160,7 +163,7 @@ main{
     width: 100%;
     height: 38rem;
     object-fit: cover;
-    object-position: bottom;
+    object-position: top;
     z-index: -2;
     opacity: 70%;
  }
@@ -184,6 +187,7 @@ main{
  }
  .featured-movie-description{
     max-width: 38rem;
+    max-height: 6rem;
     color: var(--light-gray);
     font-family: 'Magra', sans-serif;
     font-size: 1.6rem;
@@ -198,7 +202,24 @@ main{
     gap: 1rem 1.4rem;
     margin-right: 1.4rem;
 }
-
+.featured-movie-title{
+    font-size: 3.2rem;
+    font-family: 'Magra', sans-serif;
+    color: var(--white);
+    text-align: right;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+    margin-right: 1.4rem;
+}
+.featured-movie-title__small{
+    font-size: 2.5rem;
+    font-family: 'Magra', sans-serif;
+    color: var(--white);
+    text-align: right;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+    margin-right: 1.4rem;
+}
 .category-tag a{
     display: inline-flex; /*makes `a` elements ocupy only width and height according to the content*/
     background-color: var(--light-gray);
@@ -211,16 +232,6 @@ main{
     color: black;
 }
 
-/* 🎥 FEATURED MOVIE TITLE 🎥 */
-.featured-movie-title{
-    font-size: 3.2rem;
-    font-family: 'Magra', sans-serif;
-    color: var(--white);
-    text-align: right;
-    gap: 1rem;
-    margin-bottom: 1.1rem;
-    margin-right: 1.4rem;
-}
 
  /* 📗 SECONDARY TITLES 📗 */
  .secondary-titles{
