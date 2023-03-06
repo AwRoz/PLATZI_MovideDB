@@ -60,9 +60,14 @@ async function getGenres(mediaType, mediaGenres){
 async function getMediaTrailer(mediaType, mediaID){
     const {data} = await api(`/${mediaType}/${mediaID}/videos`)
     const mediaVideos = data.results
+    console.log(mediaVideos)
     const trailer = mediaVideos.find(video => video.type === 'Trailer')
     const trailerKey = trailer.key
     return trailerKey
+}
+
+async function getUpcomingMovies(){
+    const {data} = api(`/discover/movie`)
 }
 // async function getFeaturedImg(mediaType,mediaId){
 //     try{

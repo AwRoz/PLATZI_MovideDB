@@ -18,3 +18,5 @@ Principles for responsive layouts:
 
 Try to avoid fixed sizes like width: 200px or 200rem. Try to use min-width/max-width instead. This will allow the design to be controlled on different screen sizes.
 Accessibility: Be careful when setting elements up with fixed sizes, like the movie tags categories. If someone scales the text in the browser, the tags won't scale due to their fixed size either in their container or in the text itself.
+
+When working with views (enabling and disabling in JS) each main view must be contained in a section container with an ID(id='view-name') and an empty class, and only using this class to toggle 'disable-view' and not use this container for styling.

@@ -13,83 +13,86 @@
 <body>
 <main>
     <!-- 🍿  MOVIE DETAILS COMPONENT 🍿 -->
-    <section class="movie-details-container">
-        <div class="movie-details">
-            <div class="movie-poster">
-                <!-- PLAY BUTTON COMPONETN -->
-                <a href="https://youtu.be/k8qGElYoAoU" class="movie-details-trailer-link">
-                    <span class="play-btn"></span>
-                </a>
-                <img src="https://www.themoviedb.org/t/p/w1280/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" alt="movie poster" class="movie-poster">
+    <section id="movie-details-page" class="">
+        <section class="movie-details-container">
+            <div class="movie-details">
+                <div class="movie-poster">
+                    <!-- PLAY BUTTON COMPONETN -->
+                    <a href="https://youtu.be/k8qGElYoAoU" class="movie-details-trailer-link">
+                        <span class="play-btn"></span>
+                    </a>
+                    <img src="https://www.themoviedb.org/t/p/w1280/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg" alt="movie poster" class="movie-poster">
+                </div>
+                <h2 class="movie-details-title">The last of Us</h2>
+                <p class="movie-details-description">Twenty years after modern civilization has been destroyed, Joel, a hardened survivor, is hired to smuggle Ellie, a 14-year-old girl, out of an oppressive quarantine zone. What starts as a small job soon becomes a brutal, heartbreaking journey, as they both must traverse the United States and depend on each other for survival.
+                </p>
+                <div class="movie-details-tags-container">
+                    <ul class="movie-details-tags-list">
+                        <li class="category-tag"><a href="">Mistery</a></li>
+                        <li class="category-tag"><a href="">Thriller</a></li>
+                        <li class="category-tag"><a href="">Zombies</a></li>
+                    </ul>
+                </div>
+                <div class="meta-data">
+                    <h6 class="movie-details-metaData">1h 57m | 2023 | +15</h6>
+                    <h6 class="movie-details-metaData"><span>Creators:</span> Kim Tae-joon</h6>
+                </div>
             </div>
-            <h2 class="movie-details-title">The last of Us</h2>
-            <p class="movie-details-description">Twenty years after modern civilization has been destroyed, Joel, a hardened survivor, is hired to smuggle Ellie, a 14-year-old girl, out of an oppressive quarantine zone. What starts as a small job soon becomes a brutal, heartbreaking journey, as they both must traverse the United States and depend on each other for survival.
-            </p>
-            <div class="movie-details-tags-container">
-                <ul class="movie-details-tags-list">
-                    <li class="category-tag"><a href="">Mistery</a></li>
-                    <li class="category-tag"><a href="">Thriller</a></li>
-                    <li class="category-tag"><a href="">Zombies</a></li>
-                </ul>
-            </div>
-            <div class="meta-data">
-                <h6 class="movie-details-metaData">1h 57m | 2023 | +15</h6>
-                <h6 class="movie-details-metaData"><span>Creators:</span> Kim Tae-joon</h6>
-            </div>
-        </div>
+        </section>
+    
+        <!-- 🎬 MMOVIE DETAILS MEDIA 🎬 -->
+        <section class="cast-container">
+            <h3 class="secondary-titles">Cast</h3>
+            <!-- 🎬 MOVIE CAST 🎬 -->
+            <ul class="cast-list carousel-scroll">
+                <li class="card-container">
+                    <a href="https://www.themoviedb.org/person/1253360-pedro-pascal" class="cast-card">
+                        <img src="https://www.themoviedb.org/t/p/w276_and_h350_face/dBOrm29cr7NUrjiDQMTtrTyDpfy.jpg" alt="cast picture" class="cast-picture">
+                        <span class="cast-real-name">Pedro Pascal</span>
+                        <h6 class="cast-acting-name">Joel Miller</h6>
+                    </a>
+                </li>
+                <li class="card-container">
+                    <a href="https://www.themoviedb.org/person/1253360-pedro-pascal" class="cast-card">
+                        <img src="https://www.themoviedb.org/t/p/w276_and_h350_face/eFCgHQTTVDPalvkZytKqieefMrx.jpg" alt="cast picture" class="cast-picture">
+                        <span class="cast-real-name">Bella Ramsey</span>
+                        <h6 class="cast-acting-name">Elly Williams</h6>
+                    </a>
+                </li>
+                <li class="card-container">
+                    <a href="https://www.themoviedb.org/person/1253360-pedro-pascal" class="cast-card">
+                        <img src="https://www.themoviedb.org/t/p/w276_and_h350_face/2oOYpdlQyNQfXvtyaoAHNsWhqZz.jpg" alt="cast picture" class="cast-picture">
+                        <span class="cast-real-name">Anna Torv</span>
+                        <h6 class="cast-acting-name">Tess</h6>
+                    </a>
+                </li>
+                <li class="card-container">
+                    <a href="https://www.themoviedb.org/person/1253360-pedro-pascal" class="cast-card">
+                        <img src="https://www.themoviedb.org/t/p/w276_and_h350_face/4IEsKiSsyckleKsPsiIVtAh6QDy.jpg" alt="cast picture" class="cast-picture">
+                        <span class="cast-real-name">Lamar Jhonson</span>
+                        <h6 class="cast-acting-name">Henrry Burrell</h6>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    
+        <section class="movie-details-media">
+            <h3 class="secondary-titles">Media</h3>
+            <ul class="media-list carousel-scroll">
+                <li class="media-img">
+                    <img src="https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/uDgy6hyPd82kOHh6I95FLtLnj6p.jpg" alt="movie-image">
+                </li>
+                <li class="media-img">
+                    <img src="https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/lY2DhbA7Hy44fAKddr06UrXWWaQ.jpg" alt="movie-image">
+                </li>
+                <li class="media-img">
+                    <img src="https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/uJ16DD1dj4CQLPNCWIoiOF3l8np.jpg" alt="movie-image">
+                </li>
+            </ul>
+    
+        </section>
     </section>
 
-    <!-- 🎬 MMOVIE DETAILS MEDIA 🎬 -->
-    <section class="cast-container">
-        <h3 class="secondary-titles">Cast</h3>
-        <!-- 🎬 MOVIE CAST 🎬 -->
-        <ul class="cast-list carousel-scroll">
-            <li class="card-container">
-                <a href="https://www.themoviedb.org/person/1253360-pedro-pascal" class="cast-card">
-                    <img src="https://www.themoviedb.org/t/p/w276_and_h350_face/dBOrm29cr7NUrjiDQMTtrTyDpfy.jpg" alt="cast picture" class="cast-picture">
-                    <span class="cast-real-name">Pedro Pascal</span>
-                    <h6 class="cast-acting-name">Joel Miller</h6>
-                </a>
-            </li>
-            <li class="card-container">
-                <a href="https://www.themoviedb.org/person/1253360-pedro-pascal" class="cast-card">
-                    <img src="https://www.themoviedb.org/t/p/w276_and_h350_face/eFCgHQTTVDPalvkZytKqieefMrx.jpg" alt="cast picture" class="cast-picture">
-                    <span class="cast-real-name">Bella Ramsey</span>
-                    <h6 class="cast-acting-name">Elly Williams</h6>
-                </a>
-            </li>
-            <li class="card-container">
-                <a href="https://www.themoviedb.org/person/1253360-pedro-pascal" class="cast-card">
-                    <img src="https://www.themoviedb.org/t/p/w276_and_h350_face/2oOYpdlQyNQfXvtyaoAHNsWhqZz.jpg" alt="cast picture" class="cast-picture">
-                    <span class="cast-real-name">Anna Torv</span>
-                    <h6 class="cast-acting-name">Tess</h6>
-                </a>
-            </li>
-            <li class="card-container">
-                <a href="https://www.themoviedb.org/person/1253360-pedro-pascal" class="cast-card">
-                    <img src="https://www.themoviedb.org/t/p/w276_and_h350_face/4IEsKiSsyckleKsPsiIVtAh6QDy.jpg" alt="cast picture" class="cast-picture">
-                    <span class="cast-real-name">Lamar Jhonson</span>
-                    <h6 class="cast-acting-name">Henrry Burrell</h6>
-                </a>
-            </li>
-        </ul>
-    </section>
-
-    <section class="movie-details-media">
-        <h3 class="secondary-titles">Media</h3>
-        <ul class="media-list carousel-scroll">
-            <li class="media-img">
-                <img src="https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/uDgy6hyPd82kOHh6I95FLtLnj6p.jpg" alt="movie-image">
-            </li>
-            <li class="media-img">
-                <img src="https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/lY2DhbA7Hy44fAKddr06UrXWWaQ.jpg" alt="movie-image">
-            </li>
-            <li class="media-img">
-                <img src="https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/uJ16DD1dj4CQLPNCWIoiOF3l8np.jpg" alt="movie-image">
-            </li>
-        </ul>
-
-    </section>
 
         <!-- 🔍 FILTERS BLOCK 🔍 -->
         <section class="filters-container">
