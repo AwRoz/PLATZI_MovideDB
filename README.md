@@ -20,3 +20,5 @@ Try to avoid fixed sizes like width: 200px or 200rem. Try to use min-width/max-w
 Accessibility: Be careful when setting elements up with fixed sizes, like the movie tags categories. If someone scales the text in the browser, the tags won't scale due to their fixed size either in their container or in the text itself.
 
 When working with views (enabling and disabling in JS) each main view must be contained in a section container with an ID(id='view-name') and an empty class, and only using this class to toggle 'disable-view' and not use this container for styling.
+
+Double chech with the API the type and availability of data before the design, this can save us a lot of time on fixing problems when coding the JS. i.e: my custom filters are not the same filters on the API

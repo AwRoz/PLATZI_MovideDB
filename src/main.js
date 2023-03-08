@@ -32,7 +32,8 @@ async function getTrendsList(){
         console.log(trendList)
         //DOM MAnipulation
         insertFeatured(trendList)
-        insertTrendList(trendList)
+        const trendingListContainer = document.querySelector('.trending-posters-list')
+        fillPostersList(trendList,trendingListContainer)
     }catch(err){
         console.log(err)
     }finally{
@@ -40,12 +41,12 @@ async function getTrendsList(){
     }
 }
 
-async function getGenres(mediaType, mediaGenres){
+async function getGenres(mediaType, mediaGenres, container){
     const {data} = await api(`genre/${mediaType}/list`)
     const genresList = data.genres
     const filteredCategories = mediaGenres.map(id => genresList.find(category => category.id === id))
     
-    const categoriesListElement = document.querySelector('.featured-categories-list')
+    container.innerHTML = '' //avoid acumulating tags
     filteredCategories.forEach(category => {
         const categoryElement = document.createElement('li')
               categoryElement.classList.add('category-tag')
@@ -53,22 +54,36 @@ async function getGenres(mediaType, mediaGenres){
               categoryLink.innerHTML = category.name
         
         categoryElement.appendChild(categoryLink)
-        categoriesListElement.appendChild(categoryElement)
+        container.appendChild(categoryElement)
     })
 }
 
 async function getMediaTrailer(mediaType, mediaID){
     const {data} = await api(`/${mediaType}/${mediaID}/videos`)
     const mediaVideos = data.results
-    console.log(mediaVideos)
     const trailer = mediaVideos.find(video => video.type === 'Trailer')
     const trailerKey = trailer.key
     return trailerKey
 }
 
 async function getUpcomingMovies(){
-    const {data} = api(`/discover/movie`)
+    const currentDate = new Date(); // Get the current date
+    const currentYear = currentDate.getFullYear(); // Get the year component of the current date and store it in a variable
+    const currentMonth = String(currentDate.getMonth() + 1).padStart(2, '0');// Get the month component of the current date and convert it to a string with two digits (e.g. '01' for January)
+    const currentDay = String(currentDate.getDate()).padStart(2, '0');// Get the day component of the current date and convert it to a string with two digits (e.g. '01' for the first day of the month)
+    const dateString = `${currentYear}-${currentMonth}-${currentDay}`;// Construct the date string in the format 'YYYY-MM-DD' using template literals
+
+    const {data} = await api(`/discover/movie`,{
+        params:{
+            'page':'1',
+            'primary_release_date.gte':dateString
+        }
+    })
+    const upcomingMovies = data.results
+    const upcomingMoviesContainer = document.querySelector('#upcomingSection')
+    fillPostersList(upcomingMovies,upcomingMoviesContainer)
 }
+
 // async function getFeaturedImg(mediaType,mediaId){
 //     try{
 //         const mediaImages =  await apiImages(`/${mediaType}/${mediaId}/images`)
@@ -84,6 +99,7 @@ async function getUpcomingMovies(){
 // }
 
 getTrendsList()
+getUpcomingMovies()
 
 async function insertFeatured(trendList){
     const featuredRandom = Math.round(Math.random() * (Object.keys(trendList).length - 1)) //getting only one media randomly for the featured content section
@@ -118,7 +134,8 @@ async function insertFeatured(trendList){
     //getting featured movie genres ids and the mdeia_type (depending on the media_type the API endpoint is different)
     const mediaGenres = trendList[featuredRandom].genre_ids
     const mediaType = trendList[featuredRandom].media_type
-    getGenres(mediaType, mediaGenres)
+    const categoriesListContainer = document.querySelector('.featured-categories-list')
+    getGenres(mediaType, mediaGenres, categoriesListContainer)
 
     //linking youtube trailer
     const mediaId = trendList[featuredRandom].id
@@ -126,21 +143,60 @@ async function insertFeatured(trendList){
     trailer.setAttribute('href',`https://www.youtube.com/watch?v=${trailerKey}`)
 }
     
-
-function insertTrendList(trendList){
-    const trendPostersContainer = document.querySelector('.trending-posters-list')
-    trendList.forEach(element => {
+function fillPostersList(list,container){
+    list.forEach(element => {
         const poster = document.createElement('a')
-              poster.setAttribute('href','#')
+              poster.addEventListener('click',()=>{location.hash=`#${element.media_type}=${element.id}`})
         const posterImg = document.createElement('img')
               posterImg.setAttribute('src',`${imgEndpoint}/${imgSmall}/${element.poster_path}`)
               posterImg.setAttribute('alt','image poster')
               posterImg.classList.add('movie-poster')
-        poster.appendChild(posterImg)
-        trendPostersContainer.appendChild(poster)
-    });
+              poster.appendChild(posterImg)
+        container.appendChild(poster)
+    })
 }
 
+async function getMediaDetails(mediaType,mediaId){
+    try{
+        const {data} = await api(`/${mediaType}/${mediaId}`)
+        console.log(data)
+        const mediaTitle = (data.title) //movies contains their title on the attribute 'title', tv-shows on 'name'
+                            ? data.title  //movies doesn't contain 'name'
+                            : data.name 
+        const mediaDescription =  data.overview
+
+        //obtaining html elements
+        const titleElement = document.querySelector('.media-details-title')
+        const descriptionElement = document.querySelector('.media-details-description')
+        const posterElement = document.querySelector('#media-details-poster')
+        const bgElement = document.querySelector('.media-details-bg')
+        const dataElement = document.querySelector('#data')
+        const webElement = document.querySelector('#web')
+
+        //inserting data
+        titleElement.innerHTML = mediaTitle
+        descriptionElement.innerHTML = data.overview
+        posterElement.setAttribute('src',`${imgEndpoint}/${imgSmall}${data.poster_path}`)
+        bgElement.style.setProperty('background-image',`url(${imgEndpoint}/${imgMedium}${data.backdrop_path})`)
+        const length = (mediaType == 'movie')?data.runtime+' Mins':data.seasons.length+' Seasons'
+        const release = (mediaType == 'movie')?data.release_date:data.first_air_date
+        const releaseYear = new Date(release).getFullYear()
+        dataElement.innerHTML = `${length} | ${releaseYear} | <span class="rating">${data.vote_average}/10</span>`
+
+        webElement.setAttribute('href',data.homepage)
+        const [_,webName] = data.homepage.split('//')
+        webElement.innerHTML = `<span>Web: </span>${webName}`
+
+        const tagsContainer = document.querySelector('.media-details-tags-list')
+        const mediaGenresList = data.genres.map(genre => genre.id)
+        getGenres(mediaType,mediaGenresList,tagsContainer)
+
+
+    }catch(err){
+throw new Error('Error obteniendo data para media Details: '+ err)
+    }
+        
+}
 
 // FUNCTION GETTRENDINGLIST USING FECH, ONLY FOR THE REFERENCE.
 // const apiVersion = `3`
