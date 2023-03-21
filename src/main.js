@@ -25,9 +25,10 @@ const imgLarge = 'w1280'
 const imgOriginal = 'original'
 
 
-async function getTrendsList(){
+async function getTrendsList(mediaType){
     try{
-        const {data} = await api(`/trending/all/day`)
+        const media = (mediaType)?mediaType:'all'
+        const {data} = await api(`/trending/${media}/day`)
         const trendList = data.results
         console.log(trendList)
         //DOM MAnipulation
@@ -84,31 +85,23 @@ async function getUpcomingMovies(){
     fillPostersList(upcomingMovies,upcomingMoviesContainer)
 }
 
-// async function getFeaturedImg(mediaType,mediaId){
-//     try{
-//         const mediaImages =  await apiImages(`/${mediaType}/${mediaId}/images`)
-//         console.log(mediaImages)
-//         const imgPath = mediaImages.data.posters[0].file_path
-//         const imageElement = document.querySelector('.featured-movie-img')
-//         const src = `${imgEndpoint}/${imgLarge}${imgPath}`
-//         // console.log(src)
-//         imageElement.setAttribute('src',src)
-//     }catch(err){
-//         console.log(err)
-//     }
-// }
-
-getTrendsList()
-getUpcomingMovies()
-
 async function insertFeatured(trendList){
     const featuredRandom = Math.round(Math.random() * (Object.keys(trendList).length - 1)) //getting only one media randomly for the featured content section
     const featuredSection = document.querySelector('.featured-movie')
-    const imageElement = document.querySelector('.featured-movie-img')
-    const trailer = document.querySelector('.featured-movie-trailer-link')
+          featuredSection.innerHTML = ''
+          
+    const featuredBgContainer = document.createElement('div')
+          featuredBgContainer.classList.add('featured-movie-img-container')
+    const imageElement = document.createElement('img')
+          imageElement.setAttribute('src',`${imgEndpoint}/${imgLarge}/${trendList[featuredRandom].backdrop_path}`)
+          imageElement.classList.add('featured-movie-img')
+    const trailer = document.createElement('a')
+          trailer.classList.add('featured-movie-trailer-link')
+    const trailerBtn = document.createElement('span')
+          trailerBtn.classList.add('play-btn')
+    const gradient = document.createElement('span')
+          gradient.classList.add('img-gradient-bottom')
 
-    imageElement.setAttribute('src',`${imgEndpoint}/${imgLarge}/${trendList[featuredRandom].backdrop_path}`)
-    
     const mediaTitle = (trendList[featuredRandom].title) //movies contains their title on the attribute 'title', tv-shows on 'name'
                         ? trendList[featuredRandom].title  //movies doesn't contain 'name'
                         : trendList[featuredRandom].name //movies doesn't contain 'title', 
@@ -119,6 +112,7 @@ async function insertFeatured(trendList){
           if(mediaTitle.length > 25){
               title.classList.toggle('featured-movie-title__small')
           }
+          title.addEventListener('click',()=>{location.hash=`#${trendList[featuredRandom].media_type}=${trendList[featuredRandom].id}`})
 
     const description = document.createElement('p')
           description.classList.add('featured-movie-description')
@@ -127,6 +121,11 @@ async function insertFeatured(trendList){
     const genresContainer = document.createElement('ul')
           genresContainer.classList.add('featured-categories-list')
 
+    trailer.appendChild(trailerBtn)
+    featuredBgContainer.appendChild(imageElement)
+    featuredBgContainer.appendChild(trailer)
+    featuredBgContainer.appendChild(gradient)
+    featuredSection.appendChild(featuredBgContainer)
     featuredSection.appendChild(title)
     featuredSection.appendChild(description)
     featuredSection.appendChild(genresContainer)
@@ -144,14 +143,23 @@ async function insertFeatured(trendList){
 }
     
 function fillPostersList(list,container){
+    container.innerHTML = ''
     list.forEach(element => {
         const poster = document.createElement('a')
-              poster.addEventListener('click',()=>{location.hash=`#${element.media_type}=${element.id}`})
+                if(element.media_type){
+                    poster.addEventListener('click',()=>{location.hash=`#${element.media_type}=${element.id}`})
+                }else{
+                    poster.addEventListener('click',()=>{location.hash=`#movie=${element.id}`})
+                }
         const posterImg = document.createElement('img')
-              posterImg.setAttribute('src',`${imgEndpoint}/${imgSmall}/${element.poster_path}`)
-              posterImg.setAttribute('alt','image poster')
-              posterImg.classList.add('movie-poster')
-              poster.appendChild(posterImg)
+              if(element.poster_path){
+                  posterImg.setAttribute('src',`${imgEndpoint}/${imgSmall}/${element.poster_path}`)
+                  posterImg.setAttribute('alt','image poster')
+                  posterImg.classList.add('movie-poster')
+                  poster.appendChild(posterImg)
+              }else{
+                console.warn(`Movie poster nor found for id: ${element.id} poster not displayed`)
+              }
         container.appendChild(poster)
     })
 }
@@ -159,7 +167,6 @@ function fillPostersList(list,container){
 async function getMediaDetails(mediaType,mediaId){
     try{
         const {data} = await api(`/${mediaType}/${mediaId}`)
-        console.log(data)
         const mediaTitle = (data.title) //movies contains their title on the attribute 'title', tv-shows on 'name'
                             ? data.title  //movies doesn't contain 'name'
                             : data.name 
@@ -181,7 +188,7 @@ async function getMediaDetails(mediaType,mediaId){
         const length = (mediaType == 'movie')?data.runtime+' Mins':data.seasons.length+' Seasons'
         const release = (mediaType == 'movie')?data.release_date:data.first_air_date
         const releaseYear = new Date(release).getFullYear()
-        dataElement.innerHTML = `${length} | ${releaseYear} | <span class="rating">${data.vote_average}/10</span>`
+        dataElement.innerHTML = `${length} | ${releaseYear} | <span class="rating">${data.vote_average.toFixed(1)}/10</span>`
 
         webElement.setAttribute('href',data.homepage)
         const [_,webName] = data.homepage.split('//')
@@ -193,12 +200,97 @@ async function getMediaDetails(mediaType,mediaId){
 
 
     }catch(err){
-throw new Error('Error obteniendo data para media Details: '+ err)
+        throw new Error('Error obteniendo data para media Details: '+ err)
     }
         
 }
 
-// FUNCTION GETTRENDINGLIST USING FECH, ONLY FOR THE REFERENCE.
+async function getCast(mediaType,mediaId,castContainer){
+    try{
+        const {data} = await api(`/${mediaType}/${mediaId}/credits`)
+        const cast = data.cast
+        // const castContainer = document.querySelector('.cast-list')
+        cast.forEach(character => {
+            if (character.profile_path != null){
+                const realName = document.createElement('span')
+                      realName.classList.add('cast-real-name')
+                      realName.innerHTML = character.original_name
+                const name = document.createElement('h6')
+                      name.classList.add('cast-acting-name')
+                      name.innerHTML = character.character
+                const picture = document.createElement('img')
+                      picture.setAttribute('alt','cast picture')
+                      picture.setAttribute('src',`${imgEndpoint}/${imgSmall}${character.profile_path}`)
+                      picture.classList.add('cast-picture')
+                const characterCard = document.createElement('a')
+                      characterCard.classList.add('cast-card')
+                      characterCard.appendChild(picture)
+                      characterCard.appendChild(realName)      
+                      characterCard.appendChild(name)
+                const cardContainer = document.createElement('li')
+                      cardContainer.classList.add('card-container')
+                      cardContainer.appendChild(characterCard)
+    
+                castContainer.appendChild(characterCard)
+            }
+            else{
+                console.warn(`cast member with id: ${character.id} doesn't have profile picture, Cast member NOT displayed`)
+            }
+        })
+    }catch(err){
+        console.log(`Error en api 'cast': ${err}`)
+    }
+
+
+}
+
+async function getMediaPics(mediaType,mediaId,container){
+    try{
+        const {data} =  await apiImages(`/${mediaType}/${mediaId}/images`)
+        const backdropPics = data.backdrops
+        const posters = data.posters
+
+            backdropPics.forEach(image =>{
+                const imgLi = document.createElement('li')
+                      imgLi.classList.add('media-img')
+                const img = document.createElement('img')
+                      img.setAttribute('atl','movie image')
+                      img.setAttribute('src',`${imgEndpoint}/${imgLarge}${image.file_path}`)
+                imgLi.appendChild(img)
+
+                container.appendChild(imgLi)
+            })
+        // }else{
+            posters.forEach(image =>{
+                const imgLi = document.createElement('li')
+                      imgLi.classList.add('media-img')
+                const img = document.createElement('img')
+                      img.setAttribute('atl','movie image')
+                      img.setAttribute('src',`${imgEndpoint}/${imgLarge}${image.file_path}`)
+                imgLi.appendChild(img)
+                container.appendChild(imgLi)
+            })
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+async function getSimilar(mediaType,mediaId,container){
+    const {data} = await api(`/${mediaType}/${mediaId}/similar`)
+    const similarList = data.results
+    if (similarList.length >0){
+        fillPostersList(similarList,container)
+    }else{
+        const similarContainer = document.querySelector('#similar-section')
+        similarContainer.innerHTML = ''
+    }
+}
+
+getTrendsList()
+getUpcomingMovies()
+
+// FUNCTION GETTRENDINGLIST USING FECH, ONLY FOR REFERENCE.
 // const apiVersion = `3`
 // const apiBase = `https://api.themoviedb.org/${apiVersion}`
 // const trendingEdpint = 'trending'

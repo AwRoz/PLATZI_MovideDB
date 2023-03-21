@@ -22,3 +22,20 @@ Accessibility: Be careful when setting elements up with fixed sizes, like the mo
 When working with views (enabling and disabling in JS) each main view must be contained in a section container with an ID(id='view-name') and an empty class, and only using this class to toggle 'disable-view' and not use this container for styling.
 
 Double chech with the API the type and availability of data before the design, this can save us a lot of time on fixing problems when coding the JS. i.e: my custom filters are not the same filters on the API
+
+Still struggling with the scroll in carousel for pictures in movieDetails, some tomes it doesn't start back to 0
+
+Nodes - Variables: name variables including the asociated section i.e: 
+homeFeaturedTitle
+homeFeaturedDescription
+homeFeaturedTags
+homeTrendingList
+homeUpcomingList
+
+It's FUNDAMENTAL to work on the workflow diagrams or user web flow in the design stage. (how the user navigates through pages and how the site behaves) all of this before start coding.
+
+Include in the design process the loading skeleton, 
+
+loading Skeleton: the skeleton must match the layout (same dimention, same positions and distribution in the flow of the application/web)
+
+each element of the skeleton should be repleaced in real time. ritgh now the api is cleaning the whole container, making the skeleton disapear completely. Ref: class 3, Curso Profesional de Consumo de API REST con JavaScript

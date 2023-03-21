@@ -24,16 +24,15 @@
             <section class="featured-movie">
                 <!-- 🌆 FEATURED MOVIE IMAGE 🌆 -->
                 <div class="featured-movie-img-container">
-                    <img class="featured-movie-img" >
-                        <!-- PLAY BUTTON COMPONETN -->
-                        <a href="#" class="featured-movie-trailer-link">
-                            <span class="play-btn"></span>
-                        </a>    
-                    </img>
-                    <span class="img-gradient-bottom"></span>
-                    <!-- <span class="img-gradient-top"></span> -->
+                    <div class="featured-movie-img__loading"></div>
                 </div>
-    
+                <div class="featured-movie-title__loading"></div>
+                <p class="featured-movie-description__loading"></p>
+                <ul class="featured-categories-list__loading">
+                    <li class="category-tag__loading"></li>
+                    <li class="category-tag__loading"></li>
+                    <li class="category-tag__loading"></li>
+                </ul>
 
             </section>
     
@@ -201,34 +200,13 @@
                 <h3 class="secondary-titles">Cast</h3>
                 <!-- 🎬 MOVIE CAST 🎬 -->
                 <ul class="cast-list carousel-scroll">
-                    <li class="card-container">
+                    <!-- REFERENCE <li class="card-container">
                         <a href="https://www.themoviedb.org/person/1253360-pedro-pascal" class="cast-card">
                             <img src="https://www.themoviedb.org/t/p/w276_and_h350_face/dBOrm29cr7NUrjiDQMTtrTyDpfy.jpg" alt="cast picture" class="cast-picture">
                             <span class="cast-real-name">Pedro Pascal</span>
                             <h6 class="cast-acting-name">Joel Miller</h6>
                         </a>
-                    </li>
-                    <li class="card-container">
-                        <a href="https://www.themoviedb.org/person/1253360-pedro-pascal" class="cast-card">
-                            <img src="https://www.themoviedb.org/t/p/w276_and_h350_face/eFCgHQTTVDPalvkZytKqieefMrx.jpg" alt="cast picture" class="cast-picture">
-                            <span class="cast-real-name">Bella Ramsey</span>
-                            <h6 class="cast-acting-name">Elly Williams</h6>
-                        </a>
-                    </li>
-                    <li class="card-container">
-                        <a href="https://www.themoviedb.org/person/1253360-pedro-pascal" class="cast-card">
-                            <img src="https://www.themoviedb.org/t/p/w276_and_h350_face/2oOYpdlQyNQfXvtyaoAHNsWhqZz.jpg" alt="cast picture" class="cast-picture">
-                            <span class="cast-real-name">Anna Torv</span>
-                            <h6 class="cast-acting-name">Tess</h6>
-                        </a>
-                    </li>
-                    <li class="card-container">
-                        <a href="https://www.themoviedb.org/person/1253360-pedro-pascal" class="cast-card">
-                            <img src="https://www.themoviedb.org/t/p/w276_and_h350_face/4IEsKiSsyckleKsPsiIVtAh6QDy.jpg" alt="cast picture" class="cast-picture">
-                            <span class="cast-real-name">Lamar Jhonson</span>
-                            <h6 class="cast-acting-name">Henrry Burrell</h6>
-                        </a>
-                    </li>
+                    </li> -->
                 </ul>
             </section>
         
@@ -247,13 +225,10 @@
                 </ul>
             </section>
 
-            <section class="movies-scroll-container">
+            <section id="similar-section" class="movies-scroll-container">
                 <h3 class="secondary-titles">Similar to This</h3>
-                <div class="movies-posters-list carousel-scroll trending-posters-list">
-                    <a href="./movieDetails.html"><img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster"></a>
-                    <a href="./movieDetails.html"><img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster"></a>
-                    <a href="./movieDetails.html"><img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster"></a>
-                    <a href="./movieDetails.html"><img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster"></a>
+                <div id="similar-list-container" class="movies-posters-list carousel-scroll trending-posters-list">
+                    <!-- REFERENCE <a href="./movieDetails.html"><img src="./assets/movie-poster.jpg" alt="movie poster" class="movie-poster"></a> -->
                 </div>
             </section>
         </section>
